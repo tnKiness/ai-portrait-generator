@@ -1,0 +1,29 @@
+{
+  "name": "ai-portrait-generator",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "server",
+    "web"
+  ],
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "db:up": "docker compose up -d db",
+    "dev:api": "npm run dev -w server",
+    "dev:worker": "npm run dev:worker -w server",
+    "dev:web": "npm run dev -w web",
+    "lint": "eslint .",
+    "typecheck": "npm run typecheck --workspaces",
+    "test": "npm test -w server",
+    "build": "npm run build --workspaces",
+    "check": "npm run lint && npm run typecheck && npm test && npm run build"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "eslint": "10.13.0",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.72.0"
+  }
+}
