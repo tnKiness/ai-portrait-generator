@@ -1,5 +1,5 @@
 import { useEffect, useState, type FormEvent } from 'react';
-import { api, ApiError, type User } from '../api';
+import { api, ApiError, DEMO_MODE, type User } from '../api';
 
 export function SignIn({ onSignedIn }: { onSignedIn: (user: User) => void }) {
   const [phone, setPhone] = useState('');
@@ -74,7 +74,7 @@ export function SignIn({ onSignedIn }: { onSignedIn: (user: User) => void }) {
               {cooldown > 0 ? `Resend in ${cooldown}s` : 'Resend code'}
             </button>
           </div>
-          <p className="hint">Local demo: the code is printed in the API server's console.</p>
+          <p className="hint">{DEMO_MODE ? 'Browser demo: any 6 digits work.' : "Local demo: the code is printed in the API server's console."}</p>
         </form>
       )}
       {error && <p className="error" role="alert">{error}</p>}

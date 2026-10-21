@@ -34,6 +34,7 @@ h2 { font-size: 1.15rem; }
 .shell { max-width: 1040px; margin: 0 auto; padding: 0 16px 48px; }
 .topbar { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; }
 .brand { font-family: Georgia, serif; font-size: 1.25rem; font-weight: 600; }
+.demo-badge { display: block; font-family: system-ui, sans-serif; font-size: 0.75rem; font-weight: 400; color: var(--muted); }
 
 .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; display: grid; gap: 14px; }
 .narrow { max-width: 420px; margin: 8vh auto 0; }

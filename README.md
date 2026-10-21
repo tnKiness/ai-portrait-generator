@@ -7,6 +7,8 @@
 
 Upload a photo, pick a style, get back an AI-painted portrait with your name on it.
 
+**[▶ Try the browser demo](https://tnkiness.github.io/ai-portrait-generator/)** — the real UI with an in-browser stand-in for the API (any 6-digit OTP, canvas filters instead of an AI model, same 2-jobs-in-progress limit). The queue, worker and database run when you start the project locally.
+
 Behind that simple flow is the part that matters in production: **a durable job queue on PostgreSQL** that survives crashed workers, retries flaky AI calls with backoff, stops one user from flooding the system, and never lets a slow worker overwrite a newer result.
 
 ![Input photo and the three styles](docs/styles.png)
@@ -106,7 +108,7 @@ server/
     providers/       mock + OpenAI image providers, caption rendering
     web.ts, worker.ts  entrypoints
   test/              integration tests on real PostgreSQL
-web/                 React UI (sign in → create → gallery with live status)
+web/                 React UI (sign in → create → gallery with live status); src/demo.ts = Pages demo
 ```
 
 ## What I'd add next
