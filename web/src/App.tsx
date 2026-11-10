@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { api, type User } from './api';
+import { api, DEMO_MODE, type User } from './api';
 import { SignIn } from './screens/SignIn';
 import { Studio } from './screens/Studio';
 
@@ -18,7 +18,9 @@ export function App() {
   return (
     <div className="shell">
       <header className="topbar">
-        <span className="brand">Portrait&nbsp;Studio</span>
+        <span className="brand">
+          Portrait&nbsp;Studio{DEMO_MODE && <small className="demo-badge">Browser demo · no server or AI</small>}
+        </span>
         {user && (
           <button className="link" onClick={logout}>
             Sign out

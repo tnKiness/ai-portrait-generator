@@ -1,3 +1,6 @@
+// demo.ts imports ApiError from here but only uses it inside functions, so the cycle is safe.
+import { demoApi } from './demo';
+
 export interface User {
   id: string;
   phone: string;
@@ -40,7 +43,7 @@ async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
   return body as T;
 }
 
-export const api = {
+const httpApi = {
   me: () => request<{ user: User | null }>('/api/me'),
   requestOtp: (phone: string) => request<void>('/api/auth/otp', { method: 'POST', body: JSON.stringify({ phone }) }),
   verifyOtp: (phone: string, code: string) =>
@@ -50,3 +53,7 @@ export const api = {
   portraits: () => request<{ portraits: Portrait[] }>('/api/portraits'),
   createPortrait: (form: FormData) => request<{ portrait: Portrait }>('/api/portraits', { method: 'POST', body: form }),
 };
+
+/** The GitHub Pages build has no server, so it swaps in an in-browser implementation. */
+export const DEMO_MODE = import.meta.env.VITE_DEMO === '1';
+export const api: typeof httpApi = DEMO_MODE ? demoApi : httpApi;
