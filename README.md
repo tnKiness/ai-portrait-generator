@@ -61,9 +61,9 @@ sequenceDiagram
 
 ## Tech stack
 
-**Backend:** Node.js 22 · TypeScript · Fastify 5 · PostgreSQL 17 (`pg`) · sharp · Zod
-**Frontend:** React 19 · Vite
-**Tooling:** Vitest · ESLint · Docker / Compose · GitHub Actions
+- **Backend:** Node.js 22 · TypeScript · Fastify 5 · PostgreSQL 17 (`pg`) · sharp · Zod
+- **Frontend:** React 19 · Vite
+- **Tooling:** Vitest · ESLint · Docker / Compose · GitHub Actions
 
 ## Run it locally
 
